@@ -63,7 +63,7 @@ public class CardTest extends BaseTest {
         String placeOrderXPath = "//a[@href='#order'][@data-test-id='PageTeaserDict_button']";
         WebElement placeOrder = driver.findElement(By.xpath(placeOrderXPath));
         scrollToElement(placeOrder);
-        //waitFor1Sec();
+        waitFor1Sec();
         placeOrder.click();
 
         String XPath = "//input[@name='odc-personal__lastName']";
@@ -122,10 +122,6 @@ public class CardTest extends BaseTest {
             Assert.assertEquals("Поле \"" + id + "\" заполнено неверно", text, currentField.getAttribute("value"));
         }
     }
-
-
-
-
 
 
 }
