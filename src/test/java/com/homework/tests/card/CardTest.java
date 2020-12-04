@@ -71,7 +71,7 @@ public class CardTest extends BaseTest {
         scrollToElement(lastNameField);
         waitFor1Sec();
         lastNameField.click();
-        lastNameField.sendKeys(new StringBuilder(lastName));
+        lastNameField.sendKeys(lastName);
         fillInputField("firstName']", firstName);
         fillInputField("middleName']", middleName);
         fillInputField("birthDate']", "20.07.1995");
@@ -113,7 +113,7 @@ public class CardTest extends BaseTest {
     private void fillInputField(String id, CharSequence text) {
         String XPath = "//input[@id='odc-personal__";
         WebElement currentField = driver.findElement(By.xpath(XPath.concat(id)));
-        //waitFor1Sec();
+        waitFor1Sec(); 
         currentField.click();
         currentField.sendKeys(text);
         if (id.equals("phone']")){
