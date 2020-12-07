@@ -10,6 +10,7 @@ import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
     protected WebDriver driver;
+    protected WebDriverWait wait;
 
     @Before
     public void before() {
@@ -17,8 +18,10 @@ public class BaseTest {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
-        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-        driver.manage().timeouts().setScriptTimeout(30, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().setScriptTimeout(10, TimeUnit.SECONDS);
+
+        wait = new WebDriverWait(driver, 30);
 
         String sberUrl = "http://www.sberbank.ru/ru/person";
         driver.get(sberUrl);
